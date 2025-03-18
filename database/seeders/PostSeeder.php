@@ -14,5 +14,9 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         Post::factory()->count(500)->create();
+        $post = Post::create([
+            'title' => 'Event Driven Architecture',
+            'content' => 'Laravel event va listenerlar haqida maqola...',
+        ]);
     }
 }

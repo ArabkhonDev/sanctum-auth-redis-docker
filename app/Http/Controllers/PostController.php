@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-
+      
         // Cache::store('redis')->put('test_key', 'Hello, Redis!', 60);
         // $value = Cache::store('redis')->get('test_key');
         // dd($value);
@@ -23,7 +23,9 @@ class PostController extends Controller
             return Post::latest()->get();
         });
 
-        return response()->json($posts);
+        return response()->json([
+            'data'=> $posts,
+        ]);
     }
 
     /**
